@@ -10,7 +10,17 @@ const storage = multer.diskStorage({
     } 
 });
 
-const upload = multer({ storage });
+function fileFilter(req, file, cb) {
+    const { mimetype } = file;
+    if (mimetype !== 'image/png' && mimetype !== 'image/jpeg') {
+        return cb(new Error('Loi'));
+    }
+    cb(null, true);
+}
+
+const limits = { fileSize: 102400 };
+
+const upload = multer({ storage, fileFilter, limits });
 
 const app = express();
 app.set('view engine', 'ejs');
