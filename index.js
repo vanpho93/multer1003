@@ -17,5 +17,27 @@ app.post('/add', (req, res) => {
     });
 });
 
+app.post('/multi', (req, res) => {
+    upload.array('image')(req, res, error => {
+        if (error) return res.send(error.message);
+        console.log(req.files);
+        console.log(req.body);
+        res.send('Da nhan.');
+    });
+});
+
+app.post('/fields', (req, res) => {
+    const fieldsConfig = [
+        { name: 'gallery' },
+        { name: 'avatar', maxCount: 1 }
+    ];
+    upload.fields(fieldsConfig)(req, res, error => {
+        if (error) return res.send(error.message);
+        console.log(req.files);
+        console.log(req.body);
+        res.send('Da nhan.');
+    });
+});
+
 app.listen(process.env.PORT || 3000, () => console.log('Server started!'));
 require('reload')(app);

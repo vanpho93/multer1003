@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- <div class="container">
         <h1>Add new Singer</h1>
         <form action="/add" method="post" class="form-group" enctype="multipart/form-data">
             <div class="form-group">
@@ -25,6 +25,46 @@
             <div class="form-group">
                 <label for="">Image</label>
                 <input type="file" name="image">
+            </div>
+            <button class="btn btn-success">Add singer</button>
+        </form>
+    </div> -->
+    <!-- <div class="container">
+        <h1>Add new Singer</h1>
+        <form action="/multi" method="post" class="form-group" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control" name="name">
+            </div>
+            <div class="form-group">
+                <label for="">Link</label>
+                <input type="text" class="form-control" name="link">
+            </div>
+            <div class="form-group">
+                <label for="">Image</label>
+                <input type="file" name="image" multiple>
+            </div>
+            <button class="btn btn-success">Add singer</button>
+        </form>
+    </div> -->
+    <div class="container">
+        <h1>Add new Singer</h1>
+        <form action="/fields" method="post" class="form-group" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control" name="name">
+            </div>
+            <div class="form-group">
+                <label for="">Link</label>
+                <input type="text" class="form-control" name="link">
+            </div>
+            <div class="form-group">
+                <label for="">Gallery</label>
+                <input type="file" name="gallery" multiple>
+            </div>
+            <div class="form-group">
+                <label for="">Avatar</label>
+                <input type="file" name="avatar">
             </div>
             <button class="btn btn-success">Add singer</button>
         </form>
