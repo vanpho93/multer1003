@@ -29,10 +29,13 @@ app.get('/', (req, res) => {
     res.render('add');
 });
 
-app.post('/add', upload.single('image'), (req, res) => {
-    console.log(req.file.filename);
-    console.log(req.body);
-    res.send('Da nhan.');
+app.post('/add', (req, res) => {
+    upload.single('image')(req, res, error => {
+        if (error) return res.send(error.message);
+        console.log(req.file.filename);
+        console.log(req.body);
+        res.send('Da nhan.');
+    });
 });
 
 app.listen(process.env.PORT || 3000, () => console.log('Server started!'));
